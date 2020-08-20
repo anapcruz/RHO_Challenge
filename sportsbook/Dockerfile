@@ -9,5 +9,5 @@ RUN mvn clean package
 FROM openjdk:8-jre-alpine
 WORKDIR /app
 COPY --from=maven_build /app/target/ /app
-CMD [ "java", "-jar", "sportsbook-0.0.1.jar" ]
+CMD [ "java", "-jar", "sportsbook-0.0.1-SNAPSHOT.jar" ]
 

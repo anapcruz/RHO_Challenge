@@ -1,9 +1,21 @@
 version: '3'
 
 services:
+    postgres:
+        image: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_PASSWORD=oe9jaacZLbR9pN
+            - POSTGRES_USER=test
+            - POSTGRES_DB=test
+        restart: always
+
     spring-boot:
-        build: ./sportsbook/
+        build: ./sportsbook
         restart: always
         ports:
             - "8080:8080"
+        depends_on:
+          - postgres
     
