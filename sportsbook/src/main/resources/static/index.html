@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SportsBook</title>
+    <link rel="stylesheet" href="css/main.css"/>
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+</head>
+<body style="background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <div id="player-page">
+        <!--<h1>Sports book betting</h1>-->
+        <div class="player-page-container">
+            <h1 class="title">Welcome to Sports book betting</h1>
+            <form id="playerForm"  name="playerForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Insert your PlayerID" autocomplete="off" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="accent username-submit">
+                        Start betting
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="bet-page" class="hiden">
+        <h1>Make your bets!</h1>
+
+    </div>
+</body>
+</html>

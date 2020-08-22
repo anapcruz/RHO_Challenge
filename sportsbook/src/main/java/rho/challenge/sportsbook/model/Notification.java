@@ -26,22 +26,23 @@ public class Notification {
     /**
      * ID of the player
      */
-    private Integer playerID;
+    private Long playerID;
 
     /**
-     * Accumulated amount of the bets in the current bet window
+     * Accumulate amount of the bets in the current bet window
      */
-    private Double accumulatedAmount;
+    private Double accumulateAmount;
 
     /**
      *
-     * @param playerID ID of the player
-     * @param accumulatedAmount Total bet amount of the player in the current window
+     * @param playerID
+     * @param accumulateAmount
      */
-    public Notification(int playerID, double accumulatedAmount) {
+    public Notification(Long playerID, Double accumulateAmount) {
         this.playerID = playerID;
-        this.accumulatedAmount = accumulatedAmount;
+        this.accumulateAmount = accumulateAmount;
     }
+
 
     /**
      * Default constructor
@@ -51,46 +52,34 @@ public class Notification {
     }
 
     /**
-     *
-     * @return
+     * Returns the player ID
+     * @return ID of the player
      */
-    public int getPlayerID() {
+    public Long getPlayerID() {
         return playerID;
     }
 
     /**
-     *
-     * @param playerID
+     * Returns the accumulate amount of the user in the current window
+     * @return accumulate bet amount
      */
-    public void setPlayerID(int playerID) {
-        this.playerID = playerID;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public double getAccumulatedAmount() {
-        return accumulatedAmount;
+    public double getAccumulateAmount() {
+        return accumulateAmount;
     }
 
     /**
      * 
-     * @param accumulatedAmount
+     * @param accumulateAmount
      */
-    public void setAccumulatedAmount(double accumulatedAmount) {
-        this.accumulatedAmount = accumulatedAmount;
+    public void setAccumulateAmount(double accumulateAmount) {
+        this.accumulateAmount = accumulateAmount;
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public String toString() {
         return "Notification{" +
                 "playerID=" + playerID +
-                ", accumulatedAmount=" + accumulatedAmount +
+                ", accumulateAmount=" + accumulateAmount +
                 '}';
     }
 }
