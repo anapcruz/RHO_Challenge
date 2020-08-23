@@ -16,6 +16,7 @@ public class NotificationController {
     @SendTo("/topic/public")
     public Player createuser(@Payload Player player, SimpMessageHeaderAccessor headerAccessor) {
         headerAccessor.getSessionAttributes().put("username", player.getPlayerID());
+        System.out.println("olaaa: " + player.getPlayerID());
         return player;
     }
 

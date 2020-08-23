@@ -1,8 +1,14 @@
 package rho.challenge.sportsbook.model;
 
+import java.time.Instant;
 
+/**
+ * Auxiliary class
+ * Class Player presents the information about a certain player:
+ * 1. ID of the player
+ * 2. information about if he is connected or disconnected
+ */
 public class Player {
-
 
     /**
      * enumerate of the messages types
@@ -22,18 +28,25 @@ public class Player {
     private Long playerID;
 
     /**
-     * bet amount
+     * Instant of time of the bet.
+     */
+    private Long time =  Instant.now().getEpochSecond();
+
+    /**
+     * Bet amount
      */
     private Double stake;
 
+
     /**
-     * Create new
-     * @param playerID ID of the player
-     * @param stake bet amount
+     * Default constructor
      */
-    public Player(Long playerID, Double stake) {
+    public Player() {
+    }
+
+    public Player(Long playerID, Long time) {
         this.playerID = playerID;
-        this.stake = stake;
+        this.time = time;
     }
 
     public MessageType getType() {
@@ -48,15 +61,11 @@ public class Player {
         return playerID;
     }
 
-    public void setPlayerID(Long playerID) {
-        this.playerID = playerID;
+    public Long getTime() {
+        return time;
     }
 
     public Double getStake() {
         return stake;
-    }
-
-    public void setStake(Double stake) {
-        this.stake = stake;
     }
 }

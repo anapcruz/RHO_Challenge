@@ -4,6 +4,8 @@ var playerPage = document.querySelector('#player-page');
 var playerForm = document.querySelector('#playerForm');
 var betPage = document.querySelector('#bet-page');
 
+var connectingElement = document.querySelector('.connecting');
+
 var stompClient = null;
 var username = null;
 
@@ -25,13 +27,15 @@ function connect(event){
 
 function onConnected(){
 
-    //stompClient.subscribe('/topic/public', onBetReceived);
+    stompClient.subscribe('/topic/public', onBetReceived);
 
     stompClient.send('/app/sportsBook.register'), {},JSON.stringify({playerID: username, type:'JOIN'})
 
-    connectingElement.classList.add('hidden');
 }
 
+function onBetReceived(){
+    console.log("olaa");
+}
 
 function onError(error){
     connectingElement.textContent = 'Could not connect to WebSocket server.';
