@@ -1,14 +1,15 @@
 'use strict';
 
-var playerPage = document.querySelector('#player-page');
+var playerPage = document.querySelector('#game-page');
 var playerForm = document.querySelector('#playerForm');
-var betPage = document.querySelector('#bet-page');
+var betPage = document.querySelector('#chat-page');
+var betForm = document.getElementById('sendMessage');
 
 var connectingElement = document.querySelector('.connecting');
 
 var stompClient = null;
-var username = null;
-
+let username;
+var stake  = null;
 
 function connect(event){
     username = document.querySelector('#name').value.trim();
@@ -16,10 +17,14 @@ function connect(event){
     if(username){
         playerPage.classList.add('hidden');
         betPage.classList.remove('hidden');
-        var socket = new SockJS('/sports-book');
+
+        var socket = new SockJS('/sportsBook');
         stompClient = Stomp.over(socket);
 
-        stompClient.connect({}, onConnected, onError);
+        stompClient.connect({}, function (frame){
+            console.log("olaaaaaaaaaa " + frame);
+            onConnected();
+        });
     }
 
     event.preventDefault();
@@ -27,14 +32,36 @@ function connect(event){
 
 function onConnected(){
 
-    stompClient.subscribe('/topic/public', onBetReceived);
+    var response = document.getElementById('name-header');
+    var header = document.createElement('h2');
+    header.appendChild(document.createTextNode("Welcome player " + username ));
+    response.appendChild(header);
 
-    stompClient.send('/app/sportsBook.register'), {},JSON.stringify({playerID: username, type:'JOIN'})
+    stompClient.subscribe('/topic/public', function (noti){
+        showmessage(JSON.parse(noti.body).content);
+        console.log("aquiiiii " + noti.body);
+    });
 
+
+    //stompClient.send('/app/sportsBook.register'), {},JSON.stringify({playerID: username, type:'JOIN'})
+    //connectingElement.classList.add('hidden');
 }
 
-function onBetReceived(){
-    console.log("olaa");
+function sendBet(){
+    stake = document.querySelector('#bet').value.trim();
+    console.log(stake);
+    console.log(username);
+    stompClient.send('/app/sportsBook/register'), {},JSON.stringify({playerID: username, stake:stake});
+}
+
+function showmessage(noti){
+
+    var response = document.getElementById('notifications');
+    var not_id =  document.createElement('ul');
+    not_id.appendChild(document.createTextNode(noti));
+    response.appendChild(not_id);
+    console.log(noti);
+
 }
 
 function onError(error){
@@ -43,4 +70,8 @@ function onError(error){
 }
 
 //buttons
-playerForm.addEventListener('submit', connect, true)
+playerForm.addEventListener('submit', connect)
+$(function (){
+   $('#sendMessage').click(function (){sendBet(); });
+});
+//betForm.addEventListener('submit', sendBet)

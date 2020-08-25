@@ -1,38 +1,51 @@
 package rho.challenge.sportsbook.model;
 
+import java.time.Instant;
+
 /**
- * Auxiliary class to create a bet
- * A bet is created in an instant of the time with a certain amount
+ * Auxiliary class
+ * Class Bet presents the information about a certain game:
+ * 1. ID of the player
+ * 2. the stake amount
+ * 3. the time of the player does the bet
  */
 public class Bet {
 
     /**
-     * Bet amount
+     * ID of the player
      */
-    private Double stake;
+    private long playerID;
 
     /**
      * Instant of time of the bet.
      */
-    private Long time;
+    private Instant time;
 
     /**
-     * Constructor assign to create a new bet
-     * @param stake
-     * @param time
+     * Bet amount
      */
-    public Bet(Double stake, Long time){
+    private double stake;
+
+    /**
+     *
+     * @param playerID
+     * @param stake
+     */
+    public Bet(long playerID, double stake) {
+        this.playerID = playerID;
         this.stake = stake;
-        this.time = time;
+        this.time = Instant.now();
     }
 
-
-    public Double getStake() {
-        return stake;
+    public long getPlayerID() {
+        return playerID;
     }
 
-    public Long getTime() {
+    public Instant getTime() {
         return time;
     }
 
+    public double getStake() {
+        return stake;
+    }
 }

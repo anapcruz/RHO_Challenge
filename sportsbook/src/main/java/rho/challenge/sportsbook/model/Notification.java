@@ -1,6 +1,8 @@
 package rho.challenge.sportsbook.model;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import lombok.Data;
+import net.minidev.json.JSONObject;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -81,5 +83,12 @@ public class Notification {
                 "playerID=" + playerID +
                 ", accumulateAmount=" + accumulateAmount +
                 '}';
+    }
+
+    public String Json(){
+        JSONObject json = new JSONObject();
+        json.put("player ID: ", this.playerID);
+        json.put("stake:", this.accumulateAmount);
+        return json.toString();
     }
 }

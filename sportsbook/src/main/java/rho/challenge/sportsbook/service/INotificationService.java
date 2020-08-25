@@ -1,10 +1,11 @@
 package rho.challenge.sportsbook.service;
 
+
 import rho.challenge.sportsbook.model.Bet;
+import rho.challenge.sportsbook.model.Notification;
 
 public interface INotificationService {
-
-    //void createBet(Bet bet);
+    public Notification processBet(Bet bet);
 
 
 }
