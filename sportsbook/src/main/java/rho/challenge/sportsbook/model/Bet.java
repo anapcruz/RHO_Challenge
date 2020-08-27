@@ -32,6 +32,11 @@ public class Bet {
      * @param stake
      */
     public Bet(long playerID, double stake) {
+        if (playerID <=0)
+            throw new IllegalArgumentException("Player ID must be positive integer");
+        if (stake <= 0)
+            throw new IllegalArgumentException("Bet amount must be a positive value");
+
         this.playerID = playerID;
         this.stake = stake;
         this.time = Instant.now();

@@ -12,14 +12,11 @@ import rho.challenge.sportsbook.service.INotificationService;
 @Controller
 public class NotificationController {
 
-
     private final INotificationService notification;
-
 
     @Autowired
     public NotificationController(INotificationService notification){
         this.notification = notification;
-        System.out.println("olaaaaa\n\n\n");
     }
 
     @MessageMapping("/sportsBook/register")

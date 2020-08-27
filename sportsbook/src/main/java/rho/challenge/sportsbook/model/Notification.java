@@ -23,41 +23,41 @@ public class Notification {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long notificationID;
+    private long notificationID;
 
     /**
      * ID of the player
      */
-    private Long playerID;
+    private long playerID;
 
     /**
      * Accumulate amount of the bets in the current bet window
      */
-    private Double accumulateAmount;
+    private double accumulateAmount;
 
     /**
      *
      * @param playerID
      * @param accumulateAmount
      */
-    public Notification(Long playerID, Double accumulateAmount) {
+    public Notification(long playerID, double accumulateAmount) {
+        if (playerID <= 0)
+            throw new IllegalArgumentException("Player ID must be positive integer");
+        if (accumulateAmount <= 0)
+            throw new IllegalArgumentException("Accumulated amount must be positive and greater or equals to 100");
+        if (accumulateAmount > 0 && accumulateAmount < 100)
+            throw new IllegalArgumentException("Accumulated amount must be greater or equals to 100");
+
         this.playerID = playerID;
         this.accumulateAmount = accumulateAmount;
     }
 
 
     /**
-     * Default constructor
-     */
-    public Notification() {
-
-    }
-
-    /**
      * Returns the player ID
      * @return ID of the player
      */
-    public Long getPlayerID() {
+    public long getPlayerID() {
         return playerID;
     }
 
