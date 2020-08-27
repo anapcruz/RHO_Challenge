@@ -5,7 +5,7 @@ import rho.challenge.sportsbook.model.Bet;
 import rho.challenge.sportsbook.model.Notification;
 
 public interface INotificationService {
-    public Notification processBet(Bet bet);
+    Notification processBet(Bet bet);
 
 
 }
