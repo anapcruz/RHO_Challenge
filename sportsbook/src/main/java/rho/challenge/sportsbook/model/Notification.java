@@ -11,7 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Class
+ * Class Notification
+ * It is responsible for saving all notifications for a specific user in a particular bet window, and the total bet amount is greater or equals to the threshold.
  */
 @Data
 @Entity
@@ -31,14 +32,14 @@ public class Notification {
     private long playerID;
 
     /**
-     * Accumulate amount of the bets in the current bet window
+     * Accumulated amount of the bets in the current bet window
      */
     private double accumulatedAmount;
 
     /**
-     *
-     * @param playerID
-     * @param accumulatedAmount
+     * Notification constructor
+     * @param playerID ID of the player
+     * @param accumulatedAmount accumulated amount of the bets
      */
     public Notification(long playerID, double accumulatedAmount) {
         if (playerID <= 0)
@@ -52,31 +53,6 @@ public class Notification {
         this.accumulatedAmount = accumulatedAmount;
     }
 
-
-    /**
-     * Returns the player ID
-     * @return ID of the player
-     */
-    public long getPlayerID() {
-        return playerID;
-    }
-
-    /**
-     * Returns the accumulate amount of the user in the current window
-     * @return accumulate bet amount
-     */
-    public double getAccumulatedAmount() {
-        return accumulatedAmount;
-    }
-
-    /**
-     * 
-     * @param accumulatedAmount
-     */
-    public void setAccumulatedAmount(double accumulatedAmount) {
-        this.accumulatedAmount = accumulatedAmount;
-    }
-
     @Override
     public String toString() {
         return "Notification{" +
@@ -85,12 +61,15 @@ public class Notification {
                 '}';
     }
 
+    /**
+     * Auxiliary function used in tests
+     * @return json string
+     */
     public String toJson(){
         JsonObject json = new JsonObject();
         json.addProperty("notificationID", this.notificationID + 1);
         json.addProperty("playerID", this.playerID);
         json.addProperty("accumulatedAmount", this.accumulatedAmount);
-
         return json.toString();
     }
 }

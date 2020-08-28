@@ -4,10 +4,10 @@ import java.time.Instant;
 
 /**
  * Auxiliary class
- * Class Bet presents the information about a certain game:
- * 1. ID of the player
- * 2. the stake amount
- * 3. the time of the player does the bet
+ * Class Bet presents the information about a particular bet:
+ * 1. The ID of the player
+ * 2. The stake amount
+ * 3. The instant of time of the bet
  */
 public class Bet {
 
@@ -27,7 +27,7 @@ public class Bet {
     private double stake;
 
     /**
-     *
+     * Bet constructor
      * @param playerID
      * @param stake
      */
@@ -42,14 +42,26 @@ public class Bet {
         this.time = Instant.now();
     }
 
+    /***
+     * Returns the player ID related to a particular bet.
+     * @return player ID
+     */
     public long getPlayerID() {
         return playerID;
     }
 
+    /**
+     * Returns the instant of time when a bet is received.
+     * @return time
+     */
     public Instant getTime() {
         return time;
     }
 
+    /**
+     * Returns the bet amount related to a particular bet.
+     * @return bet amount
+     */
     public double getStake() {
         return stake;
     }

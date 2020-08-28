@@ -1,14 +1,17 @@
 package rho.challenge.sportsbook.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.util.HtmlUtils;
 import rho.challenge.sportsbook.model.Bet;
 import rho.challenge.sportsbook.model.Notification;
 import rho.challenge.sportsbook.service.INotificationService;
+
+/**
+ * Class controller notification
+ * It is responsible for forwarding the received bet and returning the notification when the stake amount is greater or equals 100.
+ */
 
 @Controller
 public class NotificationController {

@@ -14,8 +14,8 @@ function connect() {
     stompClient.connect({}, function(frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/public', function(messageOutput) {
-            showMessageOutput(JSON.parse(messageOutput.body));
+        stompClient.subscribe('/topic/public', function(notification) {
+            showNotification(JSON.parse(notification.body));
         });
     });
 }
@@ -35,10 +35,10 @@ function sendMessage() {
         JSON.stringify({'playerID':userID, 'stake':stake}));
 }
 
-function showMessageOutput(messageOutput) {
+function showNotification(notification) {
     var response = document.getElementById('response');
     var p = document.createElement('p');
     p.style.wordWrap = 'break-word';
-    p.appendChild(document.createTextNode("{accountID: " + messageOutput.playerID + ", stake:  " + messageOutput.accumulatedAmount + "}"));
+    p.appendChild(document.createTextNode("{accountID: " + notification.playerID + ", stake:  " + notification.accumulatedAmount + "}"));
     response.appendChild(p);
 }
