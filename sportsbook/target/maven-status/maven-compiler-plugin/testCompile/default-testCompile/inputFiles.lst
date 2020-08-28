@@ -1,2 +1,6 @@
+/home/anacruz/Desktop/Challenge_RHO/sportsbook/src/test/java/rho/challenge/sportsbook/model/NotificationTest.java
 /home/anacruz/Desktop/Challenge_RHO/sportsbook/src/test/java/rho/challenge/sportsbook/model/BetTest.java
+/home/anacruz/Desktop/Challenge_RHO/sportsbook/src/test/java/rho/challenge/sportsbook/service/NotificationServiceUnitTest.java
 /home/anacruz/Desktop/Challenge_RHO/sportsbook/src/test/java/rho/challenge/sportsbook/SportsbookApplicationTests.java
+/home/anacruz/Desktop/Challenge_RHO/sportsbook/src/test/java/rho/challenge/sportsbook/controller/NotificationControllerUnitTest.java
+/home/anacruz/Desktop/Challenge_RHO/sportsbook/src/test/java/rho/challenge/sportsbook/controller/NotificationControllerIntegrationTest.java

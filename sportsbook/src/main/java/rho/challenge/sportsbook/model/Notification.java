@@ -1,6 +1,6 @@
 package rho.challenge.sportsbook.model;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.gson.JsonObject;
 import lombok.Data;
 import net.minidev.json.JSONObject;
 
@@ -33,23 +33,23 @@ public class Notification {
     /**
      * Accumulate amount of the bets in the current bet window
      */
-    private double accumulateAmount;
+    private double accumulatedAmount;
 
     /**
      *
      * @param playerID
-     * @param accumulateAmount
+     * @param accumulatedAmount
      */
-    public Notification(long playerID, double accumulateAmount) {
+    public Notification(long playerID, double accumulatedAmount) {
         if (playerID <= 0)
             throw new IllegalArgumentException("Player ID must be positive integer");
-        if (accumulateAmount <= 0)
+        if (accumulatedAmount <= 0)
             throw new IllegalArgumentException("Accumulated amount must be positive and greater or equals to 100");
-        if (accumulateAmount > 0 && accumulateAmount < 100)
+        if (accumulatedAmount > 0 && accumulatedAmount < 100)
             throw new IllegalArgumentException("Accumulated amount must be greater or equals to 100");
 
         this.playerID = playerID;
-        this.accumulateAmount = accumulateAmount;
+        this.accumulatedAmount = accumulatedAmount;
     }
 
 
@@ -65,30 +65,32 @@ public class Notification {
      * Returns the accumulate amount of the user in the current window
      * @return accumulate bet amount
      */
-    public double getAccumulateAmount() {
-        return accumulateAmount;
+    public double getAccumulatedAmount() {
+        return accumulatedAmount;
     }
 
     /**
      * 
-     * @param accumulateAmount
+     * @param accumulatedAmount
      */
-    public void setAccumulateAmount(double accumulateAmount) {
-        this.accumulateAmount = accumulateAmount;
+    public void setAccumulatedAmount(double accumulatedAmount) {
+        this.accumulatedAmount = accumulatedAmount;
     }
 
     @Override
     public String toString() {
         return "Notification{" +
                 "playerID=" + playerID +
-                ", accumulateAmount=" + accumulateAmount +
+                ", accumulateAmount=" + accumulatedAmount +
                 '}';
     }
 
-    public String Json(){
-        JSONObject json = new JSONObject();
-        json.put("player ID: ", this.playerID);
-        json.put("stake:", this.accumulateAmount);
+    public String toJson(){
+        JsonObject json = new JsonObject();
+        json.addProperty("notificationID", this.notificationID + 1);
+        json.addProperty("playerID", this.playerID);
+        json.addProperty("accumulatedAmount", this.accumulatedAmount);
+
         return json.toString();
     }
 }

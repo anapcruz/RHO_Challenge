@@ -39,6 +39,6 @@ function showMessageOutput(messageOutput) {
     var response = document.getElementById('response');
     var p = document.createElement('p');
     p.style.wordWrap = 'break-word';
-    p.appendChild(document.createTextNode("{accountID: " + messageOutput.playerID + ", stake:  " + messageOutput.accumulateAmount + "}"));
+    p.appendChild(document.createTextNode("{accountID: " + messageOutput.playerID + ", stake:  " + messageOutput.accumulatedAmount + "}"));
     response.appendChild(p);
 }
