@@ -4,7 +4,6 @@
 /home/anacruz/Desktop/Challenge_RHO/sportsbook/src/main/java/rho/challenge/sportsbook/model/GameWindow.java
 /home/anacruz/Desktop/Challenge_RHO/sportsbook/src/main/java/rho/challenge/sportsbook/model/Bet.java
 /home/anacruz/Desktop/Challenge_RHO/sportsbook/src/main/java/rho/challenge/sportsbook/service/NotificationService.java
-/home/anacruz/Desktop/Challenge_RHO/sportsbook/src/main/java/rho/challenge/sportsbook/Constants.java
 /home/anacruz/Desktop/Challenge_RHO/sportsbook/src/main/java/rho/challenge/sportsbook/service/INotificationService.java
 /home/anacruz/Desktop/Challenge_RHO/sportsbook/src/main/java/rho/challenge/sportsbook/model/Notification.java
 /home/anacruz/Desktop/Challenge_RHO/sportsbook/src/main/java/rho/challenge/sportsbook/web/WebSocketConfiguration.java

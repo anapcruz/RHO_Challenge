@@ -7,14 +7,12 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.internal.matchers.Null;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 import rho.challenge.sportsbook.model.Bet;
 import rho.challenge.sportsbook.model.Notification;
 import rho.challenge.sportsbook.service.NotificationService;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  *

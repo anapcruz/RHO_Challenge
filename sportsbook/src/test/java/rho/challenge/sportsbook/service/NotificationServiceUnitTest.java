@@ -8,12 +8,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import rho.challenge.sportsbook.controller.NotificationController;
 import rho.challenge.sportsbook.model.Bet;
 import rho.challenge.sportsbook.model.Notification;
 import rho.challenge.sportsbook.repository.NotificationRepository;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(JUnitPlatform.class)
