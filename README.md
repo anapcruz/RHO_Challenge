@@ -22,7 +22,7 @@ This application consists of a webServer developed with [springBoot] and it uses
 ### How to run it?
 Clone the repository to your local machine
 ```sh
-$ git clone https://github.com/anapcruz/Challenge_RHO.git
+$ https://github.com/anapcruz/RHO_Challenge.git
 ```
 
 An entire application can be ran with a single command in a terminal:
