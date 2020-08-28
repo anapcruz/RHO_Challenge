@@ -7,7 +7,8 @@ import rho.challenge.sportsbook.model.GameWindow;
 import rho.challenge.sportsbook.model.Notification;
 import rho.challenge.sportsbook.repository.NotificationRepository;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class NotificationService implements INotificationService{

@@ -1,5 +1,6 @@
 package rho.challenge.sportsbook.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -21,7 +22,7 @@ public class NotificationController {
 
     @MessageMapping("/sportsBook/register")
     @SendTo("/topic/public")
-    public Notification createBet(Bet bet){
+    public Notification createBet(Bet bet) {
         return notification.processBet(bet);
     }
 

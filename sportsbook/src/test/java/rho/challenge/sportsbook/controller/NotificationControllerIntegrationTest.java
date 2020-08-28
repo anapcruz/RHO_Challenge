@@ -42,7 +42,7 @@ class NotificationControllerIntegrationTest {
 
 
     @BeforeEach
-    public void setup(){
+    void setup(){
         blockingQueue = new LinkedBlockingDeque<>();
         this.stompClient = new WebSocketStompClient(new SockJsClient(
                 Arrays.asList(new WebSocketTransport(new StandardWebSocketClient()))));
@@ -104,7 +104,6 @@ class NotificationControllerIntegrationTest {
 
         assertEquals(expected, actual);
     }
-
 
     
 }
