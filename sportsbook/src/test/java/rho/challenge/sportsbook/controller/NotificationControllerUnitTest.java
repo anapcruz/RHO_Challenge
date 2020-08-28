@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.context.ActiveProfiles;
 import rho.challenge.sportsbook.model.Bet;
 import rho.challenge.sportsbook.model.Notification;
 import rho.challenge.sportsbook.service.NotificationService;
@@ -19,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Unit tests with mockito and compatibility with Junit4
  * https://www.baeldung.com/mockito-junit-5-extension
  */
-
+@ActiveProfiles("test")
 @ExtendWith(MockitoExtension.class)
 @RunWith(JUnitPlatform.class)
 class NotificationControllerUnitTest {

@@ -1,14 +1,16 @@
 version: '3'
 
 services:
+
   sportsbook:
     build: ./sportsbook
     restart: always
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
-  postgres:
+      - postgresdb
+
+  postgresdb:
     image: postgres
     ports:
       - "5432:5432"

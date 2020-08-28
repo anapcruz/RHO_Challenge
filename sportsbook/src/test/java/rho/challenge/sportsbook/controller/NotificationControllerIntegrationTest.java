@@ -7,6 +7,7 @@ import org.springframework.messaging.simp.stomp.StompFrameHandler;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.messaging.simp.stomp.StompSessionHandlerAdapter;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
 import org.springframework.web.socket.sockjs.client.SockJsClient;
@@ -26,7 +27,7 @@ import static junit.framework.TestCase.assertEquals;
  * Addapted from https://rieckpil.de/write-integration-tests-for-your-spring-websocket-endpoints/
  */
 
-
+@ActiveProfiles("test")
 @SpringBootTest(classes = SportsbookApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class NotificationControllerIntegrationTest {
     /**
