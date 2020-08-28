@@ -11,8 +11,8 @@ Source messages can use a format like this: {account:123, stake:4}
 
 ### The application
 This application consists of a webServer developed with [springBoot] and it uses two databases:
-- PostgreSQL - database used to store all information related to notification
-- H2 - database used only for tests
+- PostgreSQL - used to store all information related to the notification
+- H2 - used only for tests
 
 ### Prerequisites
 * [Maven]
@@ -20,7 +20,7 @@ This application consists of a webServer developed with [springBoot] and it uses
 * [Docker-compose]
 
 ### How to run it?
-Clone the repository to your local machine
+Clone the repository to your local machine:
 ```sh
 $ https://github.com/anapcruz/RHO_Challenge.git
 ```
